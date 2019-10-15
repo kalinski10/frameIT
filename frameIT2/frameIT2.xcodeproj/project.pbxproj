@@ -14,6 +14,8 @@
 		4C7AB4022345079700746796 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C7AB4012345079700746796 /* Assets.xcassets */; };
 		4C7AB4052345079700746796 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C7AB4032345079700746796 /* LaunchScreen.storyboard */; };
 		4C7AB411234509A000746796 /* Nunito-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C7AB410234509A000746796 /* Nunito-Light.ttf */; };
+		4C7AB415234A270200746796 /* Creation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7AB414234A270200746796 /* Creation.swift */; };
+		4C7AB417234A271600746796 /* ColorSwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7AB416234A271600746796 /* ColorSwatch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		4C7AB4042345079700746796 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4C7AB4062345079700746796 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C7AB410234509A000746796 /* Nunito-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Light.ttf"; sourceTree = "<group>"; };
+		4C7AB414234A270200746796 /* Creation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Creation.swift; sourceTree = "<group>"; };
+		4C7AB416234A271600746796 /* ColorSwatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSwatch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +102,8 @@
 		4C7AB40F234508A700746796 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				4C7AB416234A271600746796 /* ColorSwatch.swift */,
+				4C7AB414234A270200746796 /* Creation.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -176,6 +182,8 @@
 			files = (
 				4C7AB3FD2345079600746796 /* ViewController.swift in Sources */,
 				4C7AB3F92345079600746796 /* AppDelegate.swift in Sources */,
+				4C7AB415234A270200746796 /* Creation.swift in Sources */,
+				4C7AB417234A271600746796 /* ColorSwatch.swift in Sources */,
 				4C7AB3FB2345079600746796 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
