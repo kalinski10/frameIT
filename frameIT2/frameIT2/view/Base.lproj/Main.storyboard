@@ -24,23 +24,12 @@
                                 <rect key="frame" x="62" y="44" width="250" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <view contentMode="scaleAspectFit" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MVp-du-XG7" userLabel="creationFrame">
-                                <rect key="frame" x="54" y="135" width="278" height="265"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" fixedFrame="YES" image="FrameIT-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="PeZ-ph-wMy">
-                                        <rect key="frame" x="8" y="8" width="262" height="249"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.94898051019999996" green="0.96083527800000001" blue="0.96066838499999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" red="0.94773882627487183" green="0.77312904596328735" blue="0.0078121144324541092" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sunshine" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ge-N3-ieS" userLabel="color Label">
                                 <rect key="frame" x="47" y="489" width="281" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
                                 <fontDescription key="fontDescription" name="Nunito-Light" family="Nunito" pointSize="30"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fQL-4X-6hc">
@@ -55,48 +44,64 @@
                                     <action selector="share:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lbf-rX-hh0"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleAspectFit" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MVp-du-XG7" userLabel="creationFrame">
+                                <rect key="frame" x="54" y="135" width="278" height="265"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" fixedFrame="YES" image="FrameIT-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="PeZ-ph-wMy">
+                                        <rect key="frame" x="8" y="8" width="262" height="249"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.94898051019999996" green="0.96083527800000001" blue="0.96066838499999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="DK8-7Y-wk0" appends="YES" id="16s-rJ-eof"/>
+                                        </connections>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.94773882627487183" green="0.77312904596328735" blue="0.0078121144324541092" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E8P-vi-Fa2" userLabel="colourView">
                                 <rect key="frame" x="51" y="543" width="281" height="76"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8LY-Se-Hao" userLabel="violetButton">
-                                        <rect key="frame" x="188" y="23" width="30" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.53408896923065186" green="0.079023204743862152" blue="0.86620432138442993" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <action selector="applyColor:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oaW-lI-Tgf"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pT5-rQ-r0E" userLabel="sunshineButton">
-                                        <rect key="frame" x="243" y="23" width="30" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <action selector="applyColor:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9cR-Ek-wcE"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uDR-RK-N6u" userLabel="shamrockButton">
-                                        <rect key="frame" x="59" y="23" width="30" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <action selector="applyColor:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cO0-qU-Wz0"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rg6-uh-Bmh" userLabel="oceanButton">
-                                        <rect key="frame" x="0.0" y="23" width="30" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <action selector="applyColor:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ScI-RA-DAQ"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qS4-7f-Uaj" userLabel="candyButton">
-                                        <rect key="frame" x="125" y="23" width="30" height="30"/>
+                                        <rect key="frame" x="67" y="25" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <action selector="applyColor:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hd1-oG-fvq"/>
+                                            <action selector="applyColor:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yxT-SO-XJR"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rg6-uh-Bmh" userLabel="oceanButton">
+                                        <rect key="frame" x="125" y="25" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="applyColor:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OcW-6i-ad2"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uDR-RK-N6u" userLabel="shamrockButton">
+                                        <rect key="frame" x="181" y="25" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="applyColor:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WuN-2T-4Kf"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8LY-Se-Hao" userLabel="violetButton">
+                                        <rect key="frame" x="243" y="25" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.53408896923065186" green="0.079023204743862152" blue="0.86620432138442993" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="applyColor:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Cg-Uv-AhY"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pT5-rQ-r0E" userLabel="sunshineButton">
+                                        <rect key="frame" x="8" y="25" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="applyColor:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ry0-kJ-fJo"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -117,14 +122,17 @@
                     </view>
                     <connections>
                         <outlet property="colorLbale" destination="4Ge-N3-ieS" id="wcF-V3-WWn"/>
-                        <outlet property="colorsContainer" destination="rg6-uh-Bmh" id="yjE-Hd-Xp2"/>
+                        <outlet property="colorsContainer" destination="E8P-vi-Fa2" id="4ln-qc-Pd3"/>
                         <outlet property="creationFrame" destination="MVp-du-XG7" id="lDu-ME-pCr"/>
                         <outlet property="creationImageView" destination="PeZ-ph-wMy" id="v9X-UL-1NU"/>
-                        <outlet property="shareButton" destination="fQL-4X-6hc" id="m8W-aV-eeE"/>
-                        <outlet property="startOverButton" destination="bXi-z7-46M" id="oSI-Mg-AJg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="DK8-7Y-wk0">
+                    <connections>
+                        <action selector="changeImage:" destination="BYZ-38-t0r" id="UuJ-g8-rAc"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="132" y="136.69950738916256"/>
         </scene>
