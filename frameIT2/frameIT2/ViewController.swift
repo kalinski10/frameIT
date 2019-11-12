@@ -22,6 +22,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     let defaults = UserDefaults.standard
     var colorSwatches = [ColorSwatch].init()
     
+    var initialImageViewOffset = CGPoint()
+    
     let colorUserDefaultsKey = "ColorIndex"
     var savedColorSwatchIndex: Int {
         get {
@@ -40,42 +42,91 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     @objc func changeImageView(_ sender: UITapGestureRecognizer) {
         displayImagePickingOptions()
-        print("tap")
+        
     }
     
     @objc func moveImageView(_ sender: UIPanGestureRecognizer) {
-        print("moving")
+       let translation = sender.translation(in: creationImageView.superview)
+            
+        if sender.state == .began {
+            initialImageViewOffset = creationImageView.frame.origin
+        }
+            
+        let position = CGPoint(x: translation.x + initialImageViewOffset.x - creationImageView.frame.origin.x, y: translation.y + initialImageViewOffset.y - creationImageView.frame.origin.y)
+            
+        creationImageView.transform = creationImageView.transform.translatedBy(x: position.x, y: position.y)
     }
     
     @objc func rotateImageView(_ sender: UIRotationGestureRecognizer) {
-        print("rotating")
+        creationImageView.transform = creationImageView.transform.rotated(by: sender.rotation)
+        sender.rotation = 0
     }
     
     @objc func scaleImageVIew(_ sender: UIPinchGestureRecognizer) {
-        print("scaling")
+        creationImageView.transform = creationImageView.transform.scaledBy(x: sender.scale, y: sender.scale)
+        sender.scale = 1
     }
     
     @IBAction func startOverButton(_ sender: Any) {
         creation.reset(colorSwatch: colorSwatches[savedColorSwatchIndex])
-        creationImageView.image = creation.image
-        creationFrame.backgroundColor = creation.colorSwatch.color
-        colorLbale.text = creation.colorSwatch.caption
-        print("over")
+        
+        UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations: {
+            self.creationImageView.transform = .identity
+        }) {(success) in
+            self.animateImageChange()
+            self.animateFrameChange()
+            self.colorLbale.text = self.creation.colorSwatch.caption
+        }
     }
     
     @IBAction func share(_ sender: Any) {
+        displaySharingOptions()
+        
         if let index = colorSwatches.firstIndex(where: {$0.caption == creation.colorSwatch.caption})
         {
             savedColorSwatchIndex = index
         }
     }
+    
+    func displaySharingOptions() {
+        let note = "I framed it"
+        let image = composeCreationImage()
+        let items = [image as Any, note as Any]
+        let activityViewController = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = view
+        present(activityViewController, animated: true, completion: nil)
+    }
+    func composeCreationImage() -> UIImage{
+            
+        UIGraphicsBeginImageContextWithOptions(creationFrame.bounds.size, false, 0)
+        creationFrame.drawHierarchy(in: creationFrame.bounds, afterScreenUpdates: true)
+        let screenshot = UIGraphicsGetImageFromCurrentImageContext()!
+            UIGraphicsEndImageContext()
+            
+        return screenshot
+    }
+    
     @IBAction func applyColor(_ sender: UIButton) {
         //print("Applying color")
         if let index = colorsContainer.subviews.firstIndex(of: sender) {
             creation.colorSwatch = colorSwatches[index]
             creationFrame.backgroundColor = creation.colorSwatch.color
             colorLbale.text = creation.colorSwatch.caption
+            animateFrameChange()
+            animateLabelChange()
         }
+    }
+    
+    func animateFrameChange() {
+        UIView.transition(with: self.creationFrame, duration: 0.5, options: .transitionCrossDissolve, animations: { self.creationFrame.backgroundColor = self.creation.colorSwatch.color }, completion: nil)
+    }
+    
+    func animateLabelChange() {
+        UIView.transition(with: self.colorLbale, duration: 0.5, options: .transitionCrossDissolve, animations: {self.colorLbale.text = self.creation.colorSwatch.caption}, completion: nil)
+    }
+    
+    func animateImageChange() {
+        UIView.transition(with: self.creationImageView, duration: 0.2, options: .transitionCrossDissolve, animations: { self.creationImageView.image = self.creation.image }, completion: nil)
     }
     
     func displayImagePickingOptions(){
@@ -164,10 +215,10 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     func presentImagePicker(sourceType: UIImagePickerController.SourceType) {
                
-                   let imagePicker = UIImagePickerController()
-                   imagePicker.delegate = self
-                   imagePicker.sourceType = sourceType
-                   present(imagePicker, animated: true, completion: nil)
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = sourceType
+        present(imagePicker, animated: true, completion: nil)
     }
     
     func troubleAlert(message: String?) {
@@ -180,7 +231,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     func processPicked(image: UIImage?){
         if let newImage = image {
             creation.image = newImage
-            creationImageView.image = creation.image
+            animateImageChange()
         }
     }
     
