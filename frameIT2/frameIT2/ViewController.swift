@@ -96,6 +96,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         activityViewController.popoverPresentationController?.sourceView = view
         present(activityViewController, animated: true, completion: nil)
     }
+    
     func composeCreationImage() -> UIImage{
             
         UIGraphicsBeginImageContextWithOptions(creationFrame.bounds.size, false, 0)
