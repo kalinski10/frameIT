@@ -164,8 +164,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             let noPermissionMessage = "Looks like FrameIT doesn't have access to your camera :( please use settings app on your device to permit FrameIT accessing your camera"
             switch status {
             case .notDetermined:
-                AVCaptureDevice.requestAccess(for: AVMediaType.video, completionHandler: { (granted) in
-                        if granted {
+                AVCaptureDevice.requestAccess(for: AVMediaType.video, completionHandler: {(granted) in
+                    if granted {
                             self.presentImagePicker(sourceType: sourceType)
                         } else {
                         self.troubleAlert(message: noPermissionMessage)
@@ -191,8 +191,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             
             switch status {
             case .notDetermined:
-                PHPhotoLibrary.requestAuthorization({(newStatus) in
-                    if newStatus == .authorized {
+                PHPhotoLibrary.requestAuthorization({(granted) in
+                    if granted == .authorized {
                         self.presentImagePicker(sourceType: sourceType)
                     }else {
                         self.troubleAlert(message: noPermissionMessage)
